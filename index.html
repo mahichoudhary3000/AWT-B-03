@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalization Web Career Analization</title>
+    <style>
+body{
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fad0c4);
+    min-height:100vh;
+}
+h1{
+    text-align:center;
+    color:#d63384;
+}
+    </style>
+</head>
+<body>
+    <h1>-: Personalization Web Career Interest Analization :-</h1>
+<form>
+    <label>Enter your Name : 
+    <input type="text" id="name" placeholder="Mahendra Tararam Choudhary"><br><br>
+    </label>
+
+    <label>Enter your Email : 
+    <input type="text" id="email" placeholder="maahi@gmail.com"><br><br>
+    </label>
+    
+    <label>Enter your Mobile.No : 
+    <input type="text" id="num" maxlength="10" placeholder="XXXXX-XXXXX"><br><br>
+    </label>
+    
+    <label>
+        <b>Gender :</b> 
+        <input type="radio" name="gender" value="Male">Male
+        <input type="radio" name="gender" value="Female">Female<br><br>
+    </label>
+        
+    <b>Choice Your Hobbies / Interest :</b><br><br>
+        <label> <input type="checkbox">Coding <br></label>
+        <label> <input type="checkbox">Data Research <br></label>
+        <label> <input type="checkbox">Designing Website <br></label>
+        <label> <input type="checkbox">Learning new languages <br></label>
+        
+    <br><br>
+    
+    <label>Enter your CGPA : 
+    <input type="number" id="cgpa" placeholder="8.6"><br><br>
+    </label>
+    
+    <button onclick="
+    
+    let name = document.getElementById('name').value;
+    if (name=='')
+        alert('Required a Name !!!');
+
+    let email = document.getElementById('email').value;
+    let pattern1 = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/ ;
+
+    if(pattern1.test(email)){
+        alert('Valid Email');
+    }else{
+        alert('Invalid Email');
+    }
+    
+    let mob = document.getElementById('num').value;
+    let pattern2 = /^[6-9]\d{9}$/ ;
+
+    if(pattern2.test(mob)){
+        alert('Valid Mobile.No');
+    }else{
+        alert('Invalid Mobile.No');
+    }
+
+    let cgpa = parseInt(document.getElementById('cgpa').value);
+    let percentage = (cgpa*10).toFixed(1);
+
+    let message='';
+
+    if(cgpa>=9){
+    message='🌟 Excellent! You are highly suitable for Web Development.';
+    }
+    else if(cgpa>=8){
+    message='🚀 Very Good! Keep improving your development skills.';
+    }
+    else if(cgpa>=7){
+    message='👍 Good! Practice HTML, CSS, JavaScript and React.';
+    }
+    else{
+    message='📚 Work on programming fundamentals and web technologies.';
+    }
+
+    let result=document.getElementById('result');
+
+    result.innerHTML=`
+        Hello <b>${name}</b><br><br>
+        Your Academic Score : <b>${percentage}%</b><br><br>
+        ${message}
+    `;
+
+    ">Submit</button>
+
+    <br><br>
+
+    <div id="result"></div>
+    
+
+</form>
+</body>
+</html>
